@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:is_first_run/is_first_run.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'core/utils/app_router.dart';
 import 'core/themes/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
+import 'core/utils/app_router.dart';
 import 'core/utils/shared_preferences.dart';
 
 Future<void> main() async {

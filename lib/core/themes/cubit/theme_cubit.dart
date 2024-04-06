@@ -30,8 +30,8 @@ class AppThemeCubit extends Cubit<AppThemeState> {
         prefs!.setString(kAppThemeKey, kAppThemeDark);
         emit(DarkThemeState());
       default:
-        emit(DeviceDefaultThemeState());
         prefs!.setString(kAppThemeKey, kAppThemeDeviceDefault);
+        emit(DeviceDefaultThemeState());
     }
   }
 }
