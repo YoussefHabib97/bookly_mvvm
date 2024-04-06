@@ -5,13 +5,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'core/themes/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
 import 'core/utils/shared_preferences.dart';
+import 'core/settings/presentation/views/widgets/theme_switcher.dart';
 
 import 'features/splash/presentation/views/splash_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sharedPreferences = await SharedPreferences.getInstance();
-  runApp(const ApplicationRoot());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AppThemeCubit(),
+        ),
+      ],
+      child: const ApplicationRoot(),
+    ),
+  );
 }
 
 class ApplicationRoot extends StatefulWidget {
@@ -22,65 +32,40 @@ class ApplicationRoot extends StatefulWidget {
 }
 
 class _ApplicationRootState extends State<ApplicationRoot> {
-  Set<String> selected = {'${sharedPreferences!.getString('defaultTheme')}'};
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppThemeCubit(),
-      child: BlocBuilder<AppThemeCubit, AppThemeState>(
-        builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Bookly',
-            theme:
-                state is LightThemeState ? ThemeData.light() : ThemeData.dark(),
-            themeMode:
-                state is LightThemeState ? ThemeMode.light : ThemeMode.dark,
-            home: Scaffold(
-              appBar: AppBar(
-                actions: [
-                  SegmentedButton(
-                    showSelectedIcon: false,
-                    selected: selected,
-                    onSelectionChanged: (Set<String> newSelection) {
-                      setState(
-                        () {
-                          selected = newSelection;
-                          if (selected.first == 'light') {
-                            BlocProvider.of<AppThemeCubit>(context)
-                                .changeTheme(ThemeState.light);
-                            sharedPreferences!
-                                .setString('defaultTheme', 'light');
-                          } else {
-                            BlocProvider.of<AppThemeCubit>(context)
-                                .changeTheme(ThemeState.dark);
-                            sharedPreferences!
-                                .setString('defaultTheme', 'dark');
-                          }
-                        },
-                      );
-                    },
-                    segments: const [
-                      ButtonSegment(
-                        enabled: true,
-                        value: 'light',
-                        label: Icon(Icons.light_mode),
-                      ),
-                      ButtonSegment(
-                        enabled: true,
-                        value: 'dark',
-                        label: Icon(Icons.dark_mode),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              body: const SplashView(),
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          theme: ThemeData(
+            colorScheme: flexSchemeLight,
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            colorScheme: flexSchemeDark,
+            useMaterial3: true,
+          ),
+          themeMode: state is DeviceDefaultThemeState ||
+                  sharedPreferences!.getString(kAppThemeKey) ==
+                      kAppThemeDeviceDefault
+              ? ThemeMode.system
+              : state is LightThemeState ||
+                      sharedPreferences!.getString(kAppThemeKey) ==
+                          kAppThemeLight
+                  ? ThemeMode.light
+                  : ThemeMode.dark,
+          debugShowCheckedModeBanner: false,
+          title: 'Bookly',
+          home: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: const ThemeSwitcher(),
             ),
-          );
-        },
-      ),
+            body: const SplashView(),
+          ),
+        );
+      },
     );
   }
 }

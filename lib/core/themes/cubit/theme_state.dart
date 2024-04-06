@@ -7,6 +7,8 @@ sealed class AppThemeState extends Equatable {
   List<Object> get props => [];
 }
 
+final class AppThemeInitialState extends AppThemeState {}
+
 final class DeviceDefaultThemeState extends AppThemeState {}
 
 final class LightThemeState extends AppThemeState {}

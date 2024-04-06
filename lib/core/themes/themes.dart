@@ -1,15 +1,80 @@
 import 'package:flutter/material.dart';
 
+const String kAppThemeKey = 'theme';
+const String kAppThemeDeviceDefault = 'deviceDefault';
+const String kAppThemeLight = 'light';
+const String kAppThemeDark = 'dark';
+
 enum ThemeState {
   deviceDefault,
   light,
   dark,
 }
 
-ThemeData lightTheme = ThemeData(
-  colorSchemeSeed: Colors.deepPurple,
+const ColorScheme flexSchemeLight = ColorScheme(
   brightness: Brightness.light,
-  useMaterial3: true,
+  primary: Color(0xff006a60),
+  onPrimary: Color(0xffffffff),
+  primaryContainer: Color(0xffbbede6),
+  onPrimaryContainer: Color(0xff101413),
+  secondary: Color(0xff4a635f),
+  onSecondary: Color(0xffffffff),
+  secondaryContainer: Color(0xffcce8e2),
+  onSecondaryContainer: Color(0xff111313),
+  tertiary: Color(0xff48617a),
+  onTertiary: Color(0xffffffff),
+  tertiaryContainer: Color(0xffcfe5ff),
+  onTertiaryContainer: Color(0xff111314),
+  error: Color(0xffba1a1a),
+  onError: Color(0xffffffff),
+  errorContainer: Color(0xffffdad6),
+  onErrorContainer: Color(0xff141212),
+  background: Color(0xfffafbfb),
+  onBackground: Color(0xff0e0e0e),
+  surface: Color(0xfffdfdfd),
+  onSurface: Color(0xff090909),
+  surfaceVariant: Color(0xffeaebeb),
+  onSurfaceVariant: Color(0xff121212),
+  outline: Color(0xff818181),
+  outlineVariant: Color(0xffcdcdcd),
+  shadow: Color(0xff000000),
+  scrim: Color(0xff000000),
+  inverseSurface: Color(0xff101111),
+  onInverseSurface: Color(0xfff5f5f5),
+  inversePrimary: Color(0xff8ddcd5),
+  surfaceTint: Color(0xff006a60),
 );
 
-ThemeData darkTheme = lightTheme.copyWith(brightness: Brightness.dark);
+const ColorScheme flexSchemeDark = ColorScheme(
+  brightness: Brightness.dark,
+  primary: Color(0xff53dbca),
+  onPrimary: Color(0xff040807),
+  primaryContainer: Color(0xff005048),
+  onPrimaryContainer: Color(0xfff2f7f7),
+  secondary: Color(0xffaeccce),
+  onSecondary: Color(0xff070808),
+  secondaryContainer: Color(0xff304b4d),
+  onSecondaryContainer: Color(0xfff5f7f7),
+  tertiary: Color(0xffc0c3ef),
+  onTertiary: Color(0xff070708),
+  tertiaryContainer: Color(0xff404468),
+  onTertiaryContainer: Color(0xfff6f6f9),
+  error: Color(0xffffb4ab),
+  onError: Color(0xff080706),
+  errorContainer: Color(0xff93000a),
+  onErrorContainer: Color(0xfffbf2f3),
+  background: Color(0xff131918),
+  onBackground: Color(0xfff3f4f4),
+  surface: Color(0xff131716),
+  onSurface: Color(0xfff7f7f7),
+  surfaceVariant: Color(0xff343c3b),
+  onSurfaceVariant: Color(0xfff2f2f2),
+  outline: Color(0xff7b8686),
+  outlineVariant: Color(0xff323737),
+  shadow: Color(0xff000000),
+  scrim: Color(0xff000000),
+  inverseSurface: Color(0xfff9fdfd),
+  onInverseSurface: Color(0xff070707),
+  inversePrimary: Color(0xff316a63),
+  surfaceTint: Color(0xff53dbca),
+);
