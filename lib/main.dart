@@ -17,6 +17,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await CacheData.prefInit();
+
   runApp(
     MultiBlocProvider(
       providers: [
@@ -29,15 +30,8 @@ Future<void> main() async {
   );
 }
 
-class ApplicationRoot extends StatefulWidget {
+class ApplicationRoot extends StatelessWidget {
   const ApplicationRoot({super.key});
-
-  @override
-  State<ApplicationRoot> createState() => _ApplicationRootState();
-}
-
-class _ApplicationRootState extends State<ApplicationRoot> {
-  DateTime timeBackpressed = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +47,8 @@ class _ApplicationRootState extends State<ApplicationRoot> {
               useMaterial3: true,
             ),
             darkTheme: ThemeData(
-              brightness: Brightness.dark,
               colorScheme: flexSchemeDark,
+              brightness: Brightness.dark,
               useMaterial3: true,
             ),
             themeMode:

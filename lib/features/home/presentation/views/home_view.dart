@@ -1,5 +1,5 @@
-import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
