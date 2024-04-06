@@ -13,7 +13,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 2, milliseconds: 250),
       () => AppRouter.router.go(AppRouter.kHomeView),
     );
     super.initState();
@@ -36,6 +36,9 @@ class _SplashViewState extends State<SplashView> {
               )
               .then(
                 delay: const Duration(milliseconds: 750),
+              )
+              .fadeOut(
+                duration: const Duration(milliseconds: 500),
               ),
         ),
       ),

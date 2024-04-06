@@ -1,3 +1,4 @@
+import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,10 +6,21 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text("Home View"),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text("Home View"),
+              FilledButton(
+                onPressed: () {
+                  CacheData.clearPrefs();
+                },
+                child: const Text("Clear Shared Preferences"),
+              )
+            ],
+          ),
         ),
       ),
     );

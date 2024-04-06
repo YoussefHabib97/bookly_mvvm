@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:is_first_run/is_first_run.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/themes/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
@@ -18,14 +16,7 @@ Future<void> main() async {
   );
 
   WidgetsFlutterBinding.ensureInitialized();
-  Prefs.instance = await SharedPreferences.getInstance();
-  bool isFirstRun = await IsFirstRun.isFirstRun();
-  if (isFirstRun) {
-    Prefs.instance!.setString(kAppThemeKey, kAppThemeDeviceDefault);
-  } else {
-    Prefs.instance!.getString(kAppThemeKey);
-  }
-
+  await CacheData.prefInit();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -66,12 +57,12 @@ class _ApplicationRootState extends State<ApplicationRoot> {
               colorScheme: flexSchemeDark,
               useMaterial3: true,
             ),
-            themeMode: Prefs.instance!.getString(kAppThemeKey) ==
-                    kAppThemeDeviceDefault
-                ? ThemeMode.system
-                : Prefs.instance!.getString(kAppThemeKey) == kAppThemeLight
-                    ? ThemeMode.light
-                    : ThemeMode.dark,
+            themeMode:
+                CacheData.getData(key: kAppThemeKey) == kAppThemeDeviceDefault
+                    ? ThemeMode.system
+                    : CacheData.getData(key: kAppThemeKey) == kAppThemeLight
+                        ? ThemeMode.light
+                        : ThemeMode.dark,
             debugShowCheckedModeBanner: false,
             title: 'Bookly',
           );

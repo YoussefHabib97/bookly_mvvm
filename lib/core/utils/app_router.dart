@@ -1,15 +1,16 @@
+import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart';
+import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/home_view.dart';
 import 'package:bookly_mvvm/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:bookly_mvvm/features/splash/presentation/views/splash_view.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const String kOnboardingView = '/onboardingView';
   static const String kSplashView = '/splashView';
   static const String kHomeView = '/homeView';
 
-  static final router = GoRouter(
+  static var router = GoRouter(
     routes: [
       GoRoute(
         path: kOnboardingView,
@@ -17,7 +18,9 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) => CacheData.isAppFirstRun
+            ? const OnboardingView()
+            : const SplashView(),
       ),
       GoRoute(
         path: kHomeView,
