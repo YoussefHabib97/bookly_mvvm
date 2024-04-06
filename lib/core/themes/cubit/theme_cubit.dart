@@ -9,7 +9,7 @@ class AppThemeCubit extends Cubit<AppThemeState> {
   AppThemeCubit() : super(AppThemeInitialState());
 
   Set<ThemeState> getThemeState() {
-    switch (CacheData.prefsInstance.getString(kAppThemeKey)) {
+    switch (SharedPrefs.instance.getString(kAppThemeKey)) {
       case kAppThemeLight:
         return {ThemeState.light};
 
@@ -24,13 +24,13 @@ class AppThemeCubit extends Cubit<AppThemeState> {
   void setTheme(ThemeState state) {
     switch (state) {
       case ThemeState.light:
-        CacheData.setData(key: kAppThemeKey, value: kAppThemeLight);
+        SharedPrefs.setData(key: kAppThemeKey, value: kAppThemeLight);
         emit(LightThemeState());
       case ThemeState.dark:
-        CacheData.setData(key: kAppThemeKey, value: kAppThemeDark);
+        SharedPrefs.setData(key: kAppThemeKey, value: kAppThemeDark);
         emit(DarkThemeState());
       default:
-        CacheData.setData(key: kAppThemeKey, value: kAppThemeDeviceDefault);
+        SharedPrefs.setData(key: kAppThemeKey, value: kAppThemeDeviceDefault);
         emit(DeviceDefaultThemeState());
     }
   }

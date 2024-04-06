@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:bookly_mvvm/core/themes/cubit/theme_cubit.dart';
 
-class ThemeSwitcher extends StatelessWidget {
-  const ThemeSwitcher({
+class ThemeSwitcherWidget extends StatelessWidget {
+  const ThemeSwitcherWidget({
     super.key,
   });
 

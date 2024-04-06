@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:bookly_mvvm/core/settings/presentation/views/widgets/theme_switcher.dart';
+import 'package:bookly_mvvm/core/settings/presentation/views/widgets/theme_switcher_widget.dart';
 import 'package:bookly_mvvm/core/themes/cubit/theme_cubit.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
@@ -29,7 +29,7 @@ class ThemeOnboardingScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             Animate(
-              child: const ThemeSwitcher(),
+              child: const ThemeSwitcherWidget(),
             ).fadeIn(
               delay: const Duration(milliseconds: 2500),
               duration: const Duration(milliseconds: 500),
@@ -37,9 +37,9 @@ class ThemeOnboardingScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Animate(
               child: Text(
-                CacheData.getData(key: kAppThemeKey) == kAppThemeLight
+                SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
                     ? 'Light Theme'
-                    : CacheData.getData(key: kAppThemeKey) == kAppThemeDark
+                    : SharedPrefs.getData(key: kAppThemeKey) == kAppThemeDark
                         ? 'Dark Theme'
                         : 'System Default',
                 style: const TextStyle(

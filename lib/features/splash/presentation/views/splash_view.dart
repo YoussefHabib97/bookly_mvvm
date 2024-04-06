@@ -21,26 +21,24 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Animate(
-            child: Image.asset(
-              'assets/images/logo.png',
-              color: Theme.of(context).colorScheme.primary,
+    return Scaffold(
+      body: Center(
+        child: Animate(
+          child: Image.asset(
+            'assets/images/logo.png',
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        )
+            .fadeIn(
+              delay: const Duration(milliseconds: 250),
+              duration: const Duration(milliseconds: 500),
+            )
+            .then(
+              delay: const Duration(milliseconds: 750),
+            )
+            .fadeOut(
+              duration: const Duration(milliseconds: 500),
             ),
-          )
-              .fadeIn(
-                delay: const Duration(milliseconds: 250),
-                duration: const Duration(milliseconds: 500),
-              )
-              .then(
-                delay: const Duration(milliseconds: 750),
-              )
-              .fadeOut(
-                duration: const Duration(milliseconds: 500),
-              ),
-        ),
       ),
     );
   }

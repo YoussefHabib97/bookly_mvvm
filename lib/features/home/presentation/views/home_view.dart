@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:bookly_mvvm/core/settings/presentation/views/widgets/settings_drawer.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,21 +7,27 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text("Home View"),
-              FilledButton(
-                onPressed: () {
-                  CacheData.clearPrefs();
-                },
-                child: const Text("Clear Shared Preferences"),
-              )
+      drawer: const SettingsDrawer(),
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            pinned: false,
+            centerTitle: true,
+            title: Image.asset(
+              'assets/images/logo.png',
+              color: Theme.of(context).colorScheme.primary,
+              height: 48,
+            ),
+            actions: [
+              IconButton(
+                tooltip: 'Search',
+                onPressed: () {},
+                icon: const Icon(Icons.search),
+              ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }

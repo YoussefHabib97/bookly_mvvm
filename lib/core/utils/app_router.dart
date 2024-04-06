@@ -18,7 +18,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => CacheData.isAppFirstRun
+        builder: (context, state) => SharedPrefs.isAppFirstRun
             ? const OnboardingView()
             : const SplashView(),
       ),

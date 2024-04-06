@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/themes/cubit/theme_cubit.dart';
@@ -8,15 +7,15 @@ import 'core/utils/app_router.dart';
 import 'core/utils/shared_preferences.dart';
 
 Future<void> main() async {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.black,
-      statusBarColor: Colors.black,
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     systemNavigationBarColor: Colors.black,
+  //     statusBarColor: Colors.black,
+  //   ),
+  // );
 
   WidgetsFlutterBinding.ensureInitialized();
-  await CacheData.prefInit();
+  await SharedPrefs.prefInit();
 
   runApp(
     MultiBlocProvider(
@@ -42,21 +41,29 @@ class ApplicationRoot extends StatelessWidget {
           return MaterialApp.router(
             routerConfig: AppRouter.router,
             theme: ThemeData(
-              colorScheme: flexSchemeLight,
+              colorScheme: ColorScheme.fromSeed(
+                brightness: Brightness.light,
+                seedColor: const Color(0xff006a60),
+              ),
               brightness: Brightness.light,
               useMaterial3: true,
             ),
             darkTheme: ThemeData(
-              colorScheme: flexSchemeDark,
+              colorScheme: ColorScheme.fromSeed(
+                brightness: Brightness.dark,
+                seedColor: const Color(0xff53dbca),
+              ),
               brightness: Brightness.dark,
               useMaterial3: true,
             ),
-            themeMode:
-                CacheData.getData(key: kAppThemeKey) == kAppThemeDeviceDefault
-                    ? ThemeMode.system
-                    : CacheData.getData(key: kAppThemeKey) == kAppThemeLight
-                        ? ThemeMode.light
-                        : ThemeMode.dark,
+            themeMode: state is DeviceDefaultThemeState ||
+                    SharedPrefs.getData(key: kAppThemeKey) ==
+                        kAppThemeDeviceDefault
+                ? ThemeMode.system
+                : state is LightThemeState ||
+                        SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
+                    ? ThemeMode.light
+                    : ThemeMode.dark,
             debugShowCheckedModeBanner: false,
             title: 'Bookly',
           );

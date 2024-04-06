@@ -11,48 +11,46 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Animate(
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              )
-                  .fadeIn(
-                    delay: const Duration(milliseconds: 250),
-                    duration: const Duration(milliseconds: 500),
-                  )
-                  .then(
-                    delay: const Duration(milliseconds: 750),
-                  ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: PageView(
-                  children: const [
-                    ThemeOnboardingScreen(),
-                  ],
-                ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Animate(
+              child: Image.asset(
+                'assets/images/logo.png',
+                color: Theme.of(context).colorScheme.primary,
               ),
-              Animate(
-                child: FilledButton(
-                  onPressed: () {
-                    CacheData.setData(
-                        key: CacheData.kIsAppFirstRunKey, value: false);
-                    AppRouter.router.go(AppRouter.kHomeView);
-                  },
-                  child: const Text("Confirm"),
+            )
+                .fadeIn(
+                  delay: const Duration(milliseconds: 250),
+                  duration: const Duration(milliseconds: 500),
+                )
+                .then(
+                  delay: const Duration(milliseconds: 750),
                 ),
-              ).fadeIn(
-                delay: const Duration(milliseconds: 2500),
-                duration: const Duration(milliseconds: 500),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.4,
+              child: PageView(
+                children: const [
+                  ThemeOnboardingScreen(),
+                ],
               ),
-            ],
-          ),
+            ),
+            Animate(
+              child: FilledButton(
+                onPressed: () {
+                  SharedPrefs.setData(
+                      key: SharedPrefs.kIsAppFirstRunKey, value: false);
+                  AppRouter.router.go(AppRouter.kHomeView);
+                },
+                child: const Text("Confirm"),
+              ),
+            ).fadeIn(
+              delay: const Duration(milliseconds: 2500),
+              duration: const Duration(milliseconds: 500),
+            ),
+          ],
         ),
       ),
     );
