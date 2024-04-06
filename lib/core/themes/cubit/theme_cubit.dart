@@ -21,7 +21,7 @@ class AppThemeCubit extends Cubit<AppThemeState> {
     }
   }
 
-  void changeTheme(ThemeState state) {
+  void setTheme(ThemeState state) {
     switch (state) {
       case ThemeState.light:
         sharedPreferences!.setString(kAppThemeKey, kAppThemeLight);

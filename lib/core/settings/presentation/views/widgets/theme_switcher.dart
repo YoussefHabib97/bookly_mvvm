@@ -19,13 +19,13 @@ class ThemeSwitcher extends StatelessWidget {
             switch (newThemeState.first) {
               case ThemeState.light:
                 BlocProvider.of<AppThemeCubit>(context)
-                    .changeTheme(ThemeState.light);
+                    .setTheme(ThemeState.light);
               case ThemeState.dark:
                 BlocProvider.of<AppThemeCubit>(context)
-                    .changeTheme(ThemeState.dark);
+                    .setTheme(ThemeState.dark);
               default:
                 BlocProvider.of<AppThemeCubit>(context)
-                    .changeTheme(ThemeState.deviceDefault);
+                    .setTheme(ThemeState.deviceDefault);
             }
           },
           segments: const [
