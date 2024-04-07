@@ -1,6 +1,5 @@
-import 'package:bookly_mvvm/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:bookly_mvvm/core/utils/app_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -23,23 +22,10 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Animate(
           child: Image.asset(
-            'assets/images/logo.png',
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        )
-            .fadeIn(
-              delay: const Duration(milliseconds: 250),
-              duration: const Duration(milliseconds: 500),
-            )
-            .then(
-              delay: const Duration(milliseconds: 750),
-            )
-            .fadeOut(
-              duration: const Duration(milliseconds: 500),
-            ),
-      ),
+        'assets/images/logo.png',
+        color: Theme.of(context).colorScheme.primary,
+      )),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:bookly_mvvm/features/onboarding/presentation/views/widgets/theme_onboarding_screen.dart';
 
@@ -16,19 +15,10 @@ class OnboardingView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Animate(
-              child: Image.asset(
-                'assets/images/logo.png',
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            )
-                .fadeIn(
-                  delay: const Duration(milliseconds: 250),
-                  duration: const Duration(milliseconds: 500),
-                )
-                .then(
-                  delay: const Duration(milliseconds: 750),
-                ),
+            Image.asset(
+              'assets/images/logo.png',
+              color: Theme.of(context).colorScheme.primary,
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
               child: PageView(
@@ -37,18 +27,13 @@ class OnboardingView extends StatelessWidget {
                 ],
               ),
             ),
-            Animate(
-              child: FilledButton(
-                onPressed: () {
-                  SharedPrefs.setData(
-                      key: SharedPrefs.kIsAppFirstRunKey, value: false);
-                  AppRouter.router.go(AppRouter.kHomeView);
-                },
-                child: const Text("Confirm"),
-              ),
-            ).fadeIn(
-              delay: const Duration(milliseconds: 2500),
-              duration: const Duration(milliseconds: 500),
+            FilledButton(
+              onPressed: () {
+                SharedPrefs.setData(
+                    key: SharedPrefs.kIsAppFirstRunKey, value: false);
+                AppRouter.router.go(AppRouter.kHomeView);
+              },
+              child: const Text("Confirm"),
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:bookly_mvvm/core/settings/presentation/views/widgets/theme_switcher_widget.dart';
 import 'package:bookly_mvvm/core/themes/cubit/theme_cubit.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
@@ -18,37 +17,22 @@ class ThemeOnboardingScreen extends StatelessWidget {
         return Column(
           children: [
             const SizedBox(height: 64),
-            Animate(
-              child: const Text(
-                "Choose your preferred theme",
-                style: TextStyle(fontSize: 18),
-              ),
-            ).fadeIn(
-              delay: const Duration(seconds: 2),
-              duration: const Duration(milliseconds: 500),
+            const Text(
+              "Choose your preferred theme",
+              style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 32),
-            Animate(
-              child: const ThemeSwitcherWidget(),
-            ).fadeIn(
-              delay: const Duration(milliseconds: 2500),
-              duration: const Duration(milliseconds: 500),
-            ),
+            const ThemeSwitcherWidget(),
             const SizedBox(height: 16),
-            Animate(
-              child: Text(
-                SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
-                    ? 'Light Theme'
-                    : SharedPrefs.getData(key: kAppThemeKey) == kAppThemeDark
-                        ? 'Dark Theme'
-                        : 'System Default',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+            Text(
+              SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
+                  ? 'Light Theme'
+                  : SharedPrefs.getData(key: kAppThemeKey) == kAppThemeDark
+                      ? 'Dark Theme'
+                      : 'System Default',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-            ).fadeIn(
-              delay: const Duration(milliseconds: 2500),
-              duration: const Duration(milliseconds: 500),
             ),
           ],
         );

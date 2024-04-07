@@ -7,9 +7,9 @@ class SharedPrefs {
   static const String kIsAppFirstRunKey = 'appIsFirstRun';
   static late bool isAppFirstRun;
 
-  static Future<void> prefInit() async {
+  static Future<void> prefsInit() async {
     instance = await SharedPreferences.getInstance();
-    getIsAppFirstRun();
+    await getIsAppFirstRun();
   }
 
   static Future<bool> setData(
@@ -45,8 +45,9 @@ class SharedPrefs {
     instance.clear();
   }
 
-  static bool? getIsAppFirstRun() {
-    if (instance.get(kIsAppFirstRunKey) == null) {
+  static Future<bool?> getIsAppFirstRun() async {
+    if (instance.get(kIsAppFirstRunKey) == null ||
+        instance.get(kIsAppFirstRunKey) == true) {
       isAppFirstRun = true;
       setData(key: kIsAppFirstRunKey, value: isAppFirstRun);
       setData(key: kAppThemeKey, value: kAppThemeDeviceDefault);

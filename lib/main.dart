@@ -15,7 +15,7 @@ Future<void> main() async {
   // );
 
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPrefs.prefInit();
+  await SharedPrefs.prefsInit();
 
   runApp(
     MultiBlocProvider(

@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 
