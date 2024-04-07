@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/themes/cubit/theme_cubit.dart';
+import 'core/themes/data/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/shared_preferences.dart';
 
 Future<void> main() async {
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     systemNavigationBarColor: Colors.black,
-  //     statusBarColor: Colors.black,
-  //   ),
-  // );
-
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPrefs.prefsInit();
 

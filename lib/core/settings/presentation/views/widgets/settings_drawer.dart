@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'theme_switcher_widget.dart';
+import '../../../../themes/presentation/widgets/theme_switcher_widget.dart';
 
 class SettingsDrawer extends StatelessWidget {
   const SettingsDrawer({

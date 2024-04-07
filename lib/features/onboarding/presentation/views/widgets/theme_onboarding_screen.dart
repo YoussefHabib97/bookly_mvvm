@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bookly_mvvm/core/settings/presentation/views/widgets/theme_switcher_widget.dart';
-import 'package:bookly_mvvm/core/themes/cubit/theme_cubit.dart';
+import 'package:bookly_mvvm/core/themes/presentation/widgets/theme_switcher_widget.dart';
+import 'package:bookly_mvvm/core/themes/data/cubit/theme_cubit.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 
