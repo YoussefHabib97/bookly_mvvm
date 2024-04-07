@@ -12,13 +12,11 @@ class FeaturedBooksHorizontalListView extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.3,
       child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 5,
-        separatorBuilder: (context, index) => const SizedBox(width: 4),
-        itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: BookCoverTile(),
-        ),
+        separatorBuilder: (context, index) => const SizedBox(width: 16),
+        itemBuilder: (context, index) => const BookCoverTile(),
       ),
     );
   }
