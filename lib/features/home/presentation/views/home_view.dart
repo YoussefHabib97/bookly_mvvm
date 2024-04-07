@@ -1,6 +1,7 @@
-import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:bookly_mvvm/core/settings/presentation/views/widgets/settings_drawer.dart';
+import 'widgets/featured_books_horizontal_list_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,9 +12,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: GestureDetector(
-          onLongPress: () {
-            SharedPrefs.clearPrefs();
-          },
+          onLongPress: () => SharedPrefs.clearPrefs(),
           child: Image.asset(
             'assets/images/logo.png',
             color: Theme.of(context).colorScheme.primary,
@@ -29,13 +28,11 @@ class HomeView extends StatelessWidget {
         ],
       ),
       drawer: const SettingsDrawer(),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
-        child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) => Container(
-            color: Colors.red,
-          ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            FeaturedBooksHorizontalListView(),
+          ],
         ),
       ),
     );
