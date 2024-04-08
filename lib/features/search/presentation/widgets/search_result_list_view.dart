@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bookly_mvvm/core/presentation/views/widgets/book_details_list_tile.dart';
+import 'package:bookly_mvvm/core/book/presentation/views/widgets/book_details_list_tile.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({

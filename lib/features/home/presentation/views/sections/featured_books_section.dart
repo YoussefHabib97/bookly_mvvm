@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bookly_mvvm/core/widgets/custom_divider.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/widgets/featured_books_horizontal_list_view.dart';
 
 class FeaturedBooksSection extends StatelessWidget {
@@ -15,10 +16,7 @@ class FeaturedBooksSection extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.3,
               child: const FeaturedBooksHorizontalListView(),
             ),
-            const Divider(
-              height: 32,
-              thickness: 0.5,
-            ),
+            const CustomDivider(thickness: 0.5)
           ],
         ),
       ),

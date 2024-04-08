@@ -9,6 +9,7 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      autofocus: true,
       onSubmitted: (value) {},
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       keyboardType: TextInputType.name,
@@ -16,8 +17,8 @@ class CustomSearchTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: "Search",
         alignLabelWithHint: true,
-        enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(),
+        enabledBorder: buildOutlineInputBorder(context),
+        focusedBorder: buildOutlineInputBorder(context),
         prefixIcon: IconButton(
           onPressed: () {
             AppRouter.router.pop();
@@ -38,9 +39,10 @@ class CustomSearchTextField extends StatelessWidget {
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder() {
-    return const OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.white),
+  OutlineInputBorder buildOutlineInputBorder(BuildContext context) {
+    return OutlineInputBorder(
+      borderSide:
+          BorderSide(color: Theme.of(context).colorScheme.inverseSurface),
     );
   }
 }

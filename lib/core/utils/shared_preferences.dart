@@ -7,6 +7,8 @@ class SharedPrefs {
   static const String kIsAppFirstRunKey = 'appIsFirstRun';
   static late bool isAppFirstRun;
 
+  static const kFavoriteItems = 'favoriteItems';
+
   static Future<void> prefsInit() async {
     instance = await SharedPreferences.getInstance();
     await getIsAppFirstRun();
@@ -30,6 +32,10 @@ class SharedPrefs {
       await instance.setString(key, value);
       return true;
     }
+    if (value is List<String>) {
+      await instance.setStringList(key, value);
+      return true;
+    }
     return false;
   }
 
@@ -37,7 +43,7 @@ class SharedPrefs {
     return instance.get(key);
   }
 
-  static void deleteKey({required String key}) {
+  static void removeData({required String key}) {
     instance.remove(key);
   }
 

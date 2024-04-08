@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'book_rating_widget.dart';
 import 'package:bookly_mvvm/core/utils/styles.dart';
-import 'package:bookly_mvvm/core/presentation/views/widgets/book_cover_tile.dart';
+import 'package:bookly_mvvm/core/book/presentation/views/widgets/book_cover_tile.dart';
 
 class BookDetailsListTile extends StatelessWidget {
   const BookDetailsListTile({
@@ -14,7 +14,9 @@ class BookDetailsListTile extends StatelessWidget {
       children: [
         const SizedBox(
           height: 150,
-          child: BookCoverTile(),
+          child: BookCoverTile(
+            isDecorationImg: false,
+          ),
         ),
         const SizedBox(width: 32),
         Expanded(
@@ -47,7 +49,9 @@ class BookDetailsListTile extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const BookRatingWidget(),
+                  const BookRatingWidget(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
                 ],
               ),
             ],
