@@ -1,6 +1,7 @@
-import 'package:bookly_mvvm/core/book/presentation/views/book_details_view.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:bookly_mvvm/core/book/presentation/views/book_details_view.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/home_view.dart';
 import 'package:bookly_mvvm/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:bookly_mvvm/features/search/presentation/search_view.dart';
@@ -17,25 +18,70 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: kOnboardingView,
-        builder: (context, state) => const OnboardingView(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(curve: Curves.easeIn).animate(animation),
+            child: child,
+          ),
+          child: const OnboardingView(),
+        ),
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => SharedPrefs.isAppFirstRun
-            ? const OnboardingView()
-            : const SplashView(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+            child: child,
+          ),
+          child: SharedPrefs.isAppFirstRun
+              ? const OnboardingView()
+              : const SplashView(),
+        ),
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => const HomeView(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+            child: child,
+          ),
+          child: const HomeView(),
+        ),
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(curve: Curves.easeIn).animate(animation),
+            child: child,
+          ),
+          child: const SearchView(),
+        ),
       ),
       GoRoute(
         path: kBookDetailsView,
-        builder: (context, state) => const BookDetailsView(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+            child: child,
+          ),
+          child: const BookDetailsView(),
+        ),
       ),
     ],
   );

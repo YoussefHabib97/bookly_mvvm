@@ -1,3 +1,4 @@
+import 'package:bookly_mvvm/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/widgets/custom_divider.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/widgets/featured_books_horizontal_list_view.dart';
@@ -14,7 +15,11 @@ class FeaturedBooksSection extends StatelessWidget {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
-              child: const FeaturedBooksHorizontalListView(),
+              child: FeaturedBooksHorizontalListView(
+                onTap: () {
+                  AppRouter.router.push(AppRouter.kBookDetailsView);
+                },
+              ),
             ),
             const CustomDivider(thickness: 0.5)
           ],
