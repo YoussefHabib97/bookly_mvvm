@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bookly_mvvm/core/widgets/book_cover_tile.dart';
+import 'package:bookly_mvvm/core/presentation/views/widgets/book_cover_tile.dart';
 
 class FeaturedBooksHorizontalListView extends StatelessWidget {
   const FeaturedBooksHorizontalListView({
