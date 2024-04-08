@@ -1,6 +1,6 @@
-import 'package:bookly_mvvm/core/utils/styles.dart';
-import 'package:bookly_mvvm/features/home/presentation/views/widgets/book_details_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_mvvm/core/utils/styles.dart';
+import 'package:bookly_mvvm/core/widgets/book_details_list_tile.dart';
 
 SliverList buildLatestReleasesListView() {
   return SliverList(

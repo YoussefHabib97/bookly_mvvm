@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'floating_app_bar.dart';
-
 import 'package:bookly_mvvm/features/home/presentation/views/sections/featured_books_section.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/sections/latest_releases_section.dart';
 
