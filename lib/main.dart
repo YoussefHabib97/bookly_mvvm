@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'features/home/data/repos/home_repo_impl.dart';
+import 'features/home/presentation/views/manager/cubit/featured_books_cubit.dart';
+
+import 'core/utils/service_locator.dart';
 import 'core/themes/data/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
 import 'core/utils/app_router.dart';
@@ -8,6 +12,7 @@ import 'core/utils/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   await SharedPrefs.prefsInit();
 
   runApp(
@@ -15,6 +20,10 @@ Future<void> main() async {
       providers: [
         BlocProvider(
           create: (context) => AppThemeCubit(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..getFeaturedBooks(),
         ),
       ],
       child: const ApplicationRoot(),
