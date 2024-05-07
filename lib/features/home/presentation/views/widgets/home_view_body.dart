@@ -14,7 +14,24 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: BlocProvider.of<FeaturedBooksCubit>(context).getFeaturedBooks,
+      onRefresh: () {
+        return Future.wait(
+          [
+            Future(
+              () {
+                return BlocProvider.of<FeaturedBooksCubit>(context)
+                    .getFeaturedBooks();
+              },
+            ),
+            // Future(
+            //   () {
+            //     return BlocProvider.of<FeaturedBooksCubit>(context)
+            //         .getLatestBooks();
+            //   },
+            // ),
+          ],
+        );
+      },
       child: CustomScrollView(
         slivers: [
           const FloatingAppBar(),

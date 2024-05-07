@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/utils/app_router.dart';
-import 'sections/selected_book_section.dart';
-import 'sections/suggested_books_section.dart';
+import 'widgets/book_details_body.dart';
 
 class BookDetailsView extends StatelessWidget {
   final bool showSuggestions;
@@ -31,17 +30,8 @@ class BookDetailsView extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: showSuggestions
-            ? const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SelectedBookSection(),
-                  SuggestedBooksSection(),
-                ],
-              )
-            : const SelectedBookSection(),
+      body: BookDetailsBody(
+        showSuggestions: showSuggestions,
       ),
     );
   }

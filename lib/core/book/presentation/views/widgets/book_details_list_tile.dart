@@ -16,6 +16,7 @@ class BookDetailsListTile extends StatelessWidget {
           height: 150,
           child: BookCoverTile(
             isDecorationImg: false,
+            book: null,
           ),
         ),
         const SizedBox(width: 32),

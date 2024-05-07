@@ -8,7 +8,6 @@ class FloatingAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      forceMaterialTransparency: true,
       centerTitle: true,
       title: GestureDetector(
         onLongPress: () {

@@ -20,7 +20,10 @@ SliverList buildLatestReleasesListView() {
     delegate: SliverChildBuilderDelegate(
       childCount: 10,
       (context, index) => InkWell(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+        ),
         onTap: () {
           AppRouter.router.pushReplacement(AppRouter.kBookDetailsView);
         },

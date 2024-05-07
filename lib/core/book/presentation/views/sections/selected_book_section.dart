@@ -18,10 +18,11 @@ class SelectedBookSection extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.325,
           child: const BookCoverTile(
             isDecorationImg: false,
+            book: null,
           ),
         ),
         const Text(
-          "Diamond Blood",
+          "Diamond Dust",
           style: Styles.textStyle30,
         ),
         const Text(

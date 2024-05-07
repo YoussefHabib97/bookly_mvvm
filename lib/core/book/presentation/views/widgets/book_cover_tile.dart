@@ -1,23 +1,19 @@
+import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookCoverTile extends StatelessWidget {
   final void Function()? onTap;
   final bool isDecorationImg;
   final bool isRender;
+  final BookModel? book;
 
   const BookCoverTile({
     super.key,
     this.onTap,
     required this.isDecorationImg,
+    required this.book,
     this.isRender = true,
   });
-
-  factory BookCoverTile.noSuggestion() {
-    return const BookCoverTile(
-      isDecorationImg: false,
-      isRender: false,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +24,9 @@ class BookCoverTile extends StatelessWidget {
                 ? Ink(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         image: NetworkImage(
-                          'https://placehold.co/600x400.png',
-                        ),
+                            book!.volumeInfo.imageLinks!.thumbnail),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -43,7 +38,7 @@ class BookCoverTile extends StatelessWidget {
                 : ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.network(
-                      'https://placehold.co/600x400.png',
+                      'https://placehold.co/250x375.png',
                       fit: BoxFit.cover,
                     ),
                   ),

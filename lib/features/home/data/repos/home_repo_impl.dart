@@ -34,15 +34,46 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchLatestBooks() {
-    // TODO: implement fetchLatestBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchLatestBooks() async {
+    try {
+      var data = await apiService.get(endPoint: 'volumes?sorting=latest&q=all');
+
+      List<BookModel> booksList = [];
+
+      for (var book in data['items']) {
+        booksList.add(BookModel.fromJson(book));
+      }
+
+      return right([...booksList]);
+    } catch (e) {
+      log(e.toString());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
-      {required String category}) {
-    // TODO: implement fetchSimilarBooks
-    throw UnimplementedError();
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endPoint: 'volumes?sorting=latest&q=all&category=$category');
+
+      List<BookModel> booksList = [];
+
+      for (var book in data['items']) {
+        booksList.add(BookModel.fromJson(book));
+      }
+
+      return right([...booksList]);
+    } catch (e) {
+      log(e.toString());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
