@@ -18,11 +18,15 @@ class BookDetailsBody extends StatelessWidget {
           ? const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SelectedBookSection(),
+                SelectedBookSection(
+                  book: null,
+                ),
                 SuggestedBooksSection(),
               ],
             )
-          : const SelectedBookSection(),
+          : const SelectedBookSection(
+              book: null,
+            ),
     );
   }
 }

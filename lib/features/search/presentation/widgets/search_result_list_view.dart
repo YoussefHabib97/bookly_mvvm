@@ -11,7 +11,9 @@ class SearchResultListView extends StatelessWidget {
     return ListView.separated(
       itemCount: 10,
       separatorBuilder: (context, index) => const Divider(height: 16),
-      itemBuilder: (context, index) => const BookDetailsListTile(),
+      itemBuilder: (context, index) => const BookDetailsListTile(
+        book: null,
+      ),
     );
   }
 }
