@@ -1,6 +1,6 @@
+import 'package:bookly_mvvm/core/utils/styles.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/widgets/latest_releases_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly_mvvm/core/utils/styles.dart';
 
 class LatestReleasesSection extends StatelessWidget {
   const LatestReleasesSection({super.key});

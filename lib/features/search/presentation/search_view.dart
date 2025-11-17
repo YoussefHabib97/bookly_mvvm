@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {

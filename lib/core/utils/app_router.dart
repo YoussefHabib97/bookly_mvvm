@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:bookly_mvvm/core/book/presentation/views/book_details_view.dart';
+import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/home_view.dart';
 import 'package:bookly_mvvm/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:bookly_mvvm/features/search/presentation/search_view.dart';
 import 'package:bookly_mvvm/features/splash/presentation/views/splash_view.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const String kOnboardingView = '/onboardingView';
@@ -80,7 +81,9 @@ abstract class AppRouter {
             opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
             child: child,
           ),
-          child: const BookDetailsView(),
+          child: BookDetailsView(
+            book: state.extra as BookModel,
+          ),
         ),
       ),
     ],

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/utils/app_router.dart';
+import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -22,10 +22,11 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Image.asset(
-        'assets/images/logo.png',
-        color: Theme.of(context).colorScheme.primary,
-      )),
+        child: Image.asset(
+          'assets/images/logo.png',
+          color: Theme.of(context).colorScheme.primary,
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
-import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/utils/styles.dart';
+import 'package:flutter/material.dart';
 
 class BookRatingWidget extends StatelessWidget {
   final BookModel? book;
@@ -15,7 +15,7 @@ class BookRatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
-      children: book!.volumeInfo.averageRating == null
+      children: book?.volumeInfo.averageRating == null
           ? [
               const Text('Unrated', style: Styles.textStyle16),
             ]

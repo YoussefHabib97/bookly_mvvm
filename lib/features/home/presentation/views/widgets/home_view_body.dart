@@ -1,9 +1,11 @@
+import 'package:bookly_mvvm/features/home/presentation/views/manager/cubit/featured_books_cubit.dart';
+import 'package:bookly_mvvm/features/home/presentation/views/manager/cubit/latest_books_cubit.dart';
+import 'package:bookly_mvvm/features/home/presentation/views/sections/featured_books_section.dart';
+import 'package:bookly_mvvm/features/home/presentation/views/sections/latest_releases_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'floating_app_bar.dart';
-import 'package:bookly_mvvm/features/home/presentation/views/manager/cubit/featured_books_cubit.dart';
-import 'package:bookly_mvvm/features/home/presentation/views/sections/latest_releases_section.dart';
-import 'package:bookly_mvvm/features/home/presentation/views/sections/featured_books_section.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -24,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
             ),
             Future(
               () {
-                return BlocProvider.of<FeaturedBooksCubit>(context)
+                return BlocProvider.of<LatestBooksCubit>(context)
                     .getLatestBooks();
               },
             ),

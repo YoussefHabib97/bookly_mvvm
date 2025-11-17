@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:bookly_mvvm/core/utils/api_service.dart';
 import 'package:bookly_mvvm/features/home/data/repos/home_repo.dart';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
@@ -14,8 +14,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await apiService.get(
-          endPoint: 'volumes?filtering=free-ebooks&q=subject:computer+science');
+      var data = await apiService.get(endPoint: 'volumes?q=novels');
 
       List<BookModel> booksList = [];
 
@@ -36,7 +35,8 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchLatestBooks() async {
     try {
-      var data = await apiService.get(endPoint: 'volumes?sorting=latest&q=all');
+      var data =
+          await apiService.get(endPoint: 'volumes?q=all&orderBy=relevance');
 
       List<BookModel> booksList = [];
 
@@ -59,7 +59,7 @@ class HomeRepoImpl implements HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?sorting=latest&q=all&category=$category');
+          endPoint: 'volumes?sorting=relevance&q=all&category=$category');
 
       List<BookModel> booksList = [];
 

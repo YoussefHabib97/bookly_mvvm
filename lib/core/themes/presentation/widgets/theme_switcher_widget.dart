@@ -1,7 +1,7 @@
+import 'package:bookly_mvvm/core/themes/data/cubit/theme_cubit.dart';
+import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bookly_mvvm/core/themes/themes.dart';
-import 'package:bookly_mvvm/core/themes/data/cubit/theme_cubit.dart';
 
 class ThemeSwitcherWidget extends StatelessWidget {
   const ThemeSwitcherWidget({

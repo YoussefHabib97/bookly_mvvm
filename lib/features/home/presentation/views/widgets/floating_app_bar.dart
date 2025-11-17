@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/utils/app_router.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:flutter/material.dart';
 
 class FloatingAppBar extends StatelessWidget {
   const FloatingAppBar({super.key});

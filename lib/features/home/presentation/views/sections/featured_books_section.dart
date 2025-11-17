@@ -1,25 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:bookly_mvvm/core/utils/app_router.dart';
+import 'package:bookly_mvvm/core/utils/styles.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/widgets/featured_books_horizontal_list_view.dart';
+import 'package:flutter/material.dart';
 
 class FeaturedBooksSection extends StatelessWidget {
   const FeaturedBooksSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
+    return const SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: FeaturedBooksHorizontalListView(
-                onTap: () {
-                  AppRouter.router.push(AppRouter.kBookDetailsView);
-                },
-              ),
+            Text(
+              "Featured Books",
+              style: Styles.textStyle18,
             ),
+            FeaturedBooksHorizontalListView(),
           ],
         ),
       ),

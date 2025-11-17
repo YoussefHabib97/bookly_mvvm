@@ -1,6 +1,6 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly_mvvm/core/themes/themes.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'theme_state.dart';
 

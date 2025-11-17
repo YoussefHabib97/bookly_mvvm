@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:bookly_mvvm/features/onboarding/presentation/views/widgets/theme_onboarding_screen.dart';
-
 import 'package:bookly_mvvm/core/utils/app_router.dart';
 import 'package:bookly_mvvm/core/utils/shared_preferences.dart';
+import 'package:bookly_mvvm/features/onboarding/presentation/views/widgets/theme_onboarding_screen.dart';
+import 'package:flutter/material.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});

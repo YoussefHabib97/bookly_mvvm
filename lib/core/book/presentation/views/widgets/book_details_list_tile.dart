@@ -1,8 +1,9 @@
 import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
-import 'package:flutter/material.dart';
-import 'book_rating_widget.dart';
-import 'package:bookly_mvvm/core/utils/styles.dart';
 import 'package:bookly_mvvm/core/book/presentation/views/widgets/book_cover_tile.dart';
+import 'package:bookly_mvvm/core/utils/styles.dart';
+import 'package:flutter/material.dart';
+
+import 'book_rating_widget.dart';
 
 class BookDetailsListTile extends StatelessWidget {
   final BookModel? book;
@@ -30,7 +31,7 @@ class BookDetailsListTile extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Text(
-                  book!.volumeInfo.title!,
+                  book?.volumeInfo.title ?? 'Placeholder Title',
                   style:
                       Styles.textStyle20.copyWith(fontWeight: FontWeight.w600),
                   maxLines: 2,
@@ -38,7 +39,7 @@ class BookDetailsListTile extends StatelessWidget {
                 ),
               ),
               Text(
-                book!.volumeInfo.authors![0],
+                book?.volumeInfo.authors![0] ?? 'Placeholder Author',
                 style: Styles.textStyle16.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
@@ -48,7 +49,7 @@ class BookDetailsListTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    book!.saleInfo!.retailPrice == null
+                    book?.saleInfo?.retailPrice == null
                         ? "Free"
                         : book!.saleInfo!.retailPrice.toString(),
                     style: Styles.textStyle16.copyWith(
@@ -56,7 +57,7 @@ class BookDetailsListTile extends StatelessWidget {
                     ),
                   ),
                   BookRatingWidget(
-                    book: book!,
+                    book: book,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                 ],

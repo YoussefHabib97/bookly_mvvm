@@ -10,21 +10,16 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () async => Future.delayed(
-        const Duration(seconds: 3),
-      ),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            CustomSearchTextField(),
-            SizedBox(height: 16),
-            Expanded(
-              child: SearchResultListView(),
-            ),
-          ],
-        ),
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          CustomSearchTextField(),
+          SizedBox(height: 16),
+          Expanded(
+            child: SearchResultListView(),
+          ),
+        ],
       ),
     );
   }

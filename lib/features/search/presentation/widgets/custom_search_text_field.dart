@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bookly_mvvm/core/utils/app_router.dart';
+import 'package:flutter/material.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({

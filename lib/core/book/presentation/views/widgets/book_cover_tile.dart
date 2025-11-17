@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class BookCoverTile extends StatelessWidget {
   final void Function()? onTap;
   final bool isDecorationImg;
-  final bool isRender;
+  final bool isFetchImageFromApi;
   final BookModel? book;
 
   const BookCoverTile({
@@ -12,12 +12,12 @@ class BookCoverTile extends StatelessWidget {
     this.onTap,
     required this.isDecorationImg,
     required this.book,
-    this.isRender = true,
+    this.isFetchImageFromApi = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return isRender
+    return book != null
         ? AspectRatio(
             aspectRatio: 2.5 / 4,
             child: isDecorationImg
@@ -37,12 +37,23 @@ class BookCoverTile extends StatelessWidget {
                   )
                 : ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      'https://placehold.co/250x375.png',
-                      fit: BoxFit.cover,
-                    ),
+                    child: book != null
+                        ? Image.network(
+                            book!.volumeInfo.imageLinks!.thumbnail,
+                            fit: BoxFit.cover,
+                          )
+                        : Image.asset(
+                            'assets/images/250x375.png',
+                            fit: BoxFit.cover,
+                          ),
                   ),
           )
-        : const SizedBox();
+        : ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              'assets/images/250x375.png',
+              fit: BoxFit.cover,
+            ),
+          );
   }
 }
