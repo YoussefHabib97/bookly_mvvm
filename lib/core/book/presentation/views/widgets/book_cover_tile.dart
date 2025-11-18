@@ -21,18 +21,22 @@ class BookCoverTile extends StatelessWidget {
         ? AspectRatio(
             aspectRatio: 2.5 / 4,
             child: isDecorationImg
-                ? Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            book!.volumeInfo.imageLinks!.thumbnail),
-                        fit: BoxFit.cover,
+                ? Material(
+                    clipBehavior: Clip.hardEdge,
+                    child: Ink(
+                      padding: EdgeInsets.zero,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              book!.volumeInfo.imageLinks!.thumbnail),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    child: InkWell(
-                      onTap: onTap,
-                      borderRadius: BorderRadius.circular(16),
+                      child: InkWell(
+                        onTap: onTap,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                     ),
                   )
                 : ClipRRect(

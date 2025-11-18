@@ -11,6 +11,7 @@ class CustomSearchTextField extends StatelessWidget {
     return TextField(
       autofocus: true,
       onSubmitted: (value) {},
+      onChanged: (value) {},
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.sentences,
@@ -28,13 +29,13 @@ class CustomSearchTextField extends StatelessWidget {
             child: Icon(Icons.arrow_back),
           ),
         ),
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: const Opacity(
-            opacity: 0.75,
-            child: Icon(Icons.search),
-          ),
-        ),
+        // suffixIcon: IconButton(
+        //   onPressed: () {},
+        //   icon: const Opacity(
+        //     opacity: 0.75,
+        //     child: Icon(Icons.search),
+        //   ),
+        // ),
       ),
     );
   }

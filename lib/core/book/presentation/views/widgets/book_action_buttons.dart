@@ -39,7 +39,7 @@ class BookActionButtons extends StatelessWidget {
             ],
           )
         : CustomFilledButton(
-            buttonText: 'Free Preview',
+            buttonText: 'Preview',
             borderRadius: BorderRadius.circular(16),
             backgroundColor: Theme.of(context).colorScheme.primary,
             onPressed: () {},
