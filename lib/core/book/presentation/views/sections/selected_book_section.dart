@@ -24,13 +24,21 @@ class SelectedBookSection extends StatelessWidget {
             book: book,
           ),
         ),
-        Text(
-          book!.volumeInfo.title!,
-          style: Styles.textStyle30,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            book!.volumeInfo.title!,
+            style: Styles.textStyle30,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+          ),
         ),
         Text(
-          book!.volumeInfo.authors![0],
+          book!.volumeInfo.authors?[0] ?? 'No Credited Author',
           style: Styles.textStyle20,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
         ),
         BookRatingWidget(
           book: book,

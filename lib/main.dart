@@ -40,41 +40,38 @@ class ApplicationRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: true,
-      child: BlocBuilder<AppThemeCubit, AppThemeState>(
-        builder: (context, state) {
-          return MaterialApp.router(
-            routerConfig: AppRouter.router,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(
-                brightness: Brightness.light,
-                seedColor: const Color(0xff006a60),
-              ),
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, state) {
+        return MaterialApp.router(
+          routerConfig: AppRouter.router,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
               brightness: Brightness.light,
-              useMaterial3: true,
+              seedColor: const Color(0xff006a60),
             ),
-            darkTheme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(
-                brightness: Brightness.dark,
-                seedColor: const Color(0xff53dbca),
-              ),
+            brightness: Brightness.light,
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
               brightness: Brightness.dark,
-              useMaterial3: true,
+              seedColor: const Color(0xff53dbca),
             ),
-            themeMode: state is DeviceDefaultThemeState ||
-                    SharedPrefs.getData(key: kAppThemeKey) ==
-                        kAppThemeDeviceDefault
-                ? ThemeMode.system
-                : state is LightThemeState ||
-                        SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
-                    ? ThemeMode.light
-                    : ThemeMode.dark,
-            debugShowCheckedModeBanner: false,
-            title: 'Bookly',
-          );
-        },
-      ),
+            brightness: Brightness.dark,
+            useMaterial3: true,
+          ),
+          themeMode: state is DeviceDefaultThemeState ||
+                  SharedPrefs.getData(key: kAppThemeKey) ==
+                      kAppThemeDeviceDefault
+              ? ThemeMode.system
+              : state is LightThemeState ||
+                      SharedPrefs.getData(key: kAppThemeKey) == kAppThemeLight
+                  ? ThemeMode.light
+                  : ThemeMode.dark,
+          debugShowCheckedModeBanner: false,
+          title: 'Bookly',
+        );
+      },
     );
   }
 }

@@ -26,7 +26,10 @@ class CustomSearchTextField extends StatelessWidget {
           },
           icon: const Opacity(
             opacity: 0.75,
-            child: Icon(Icons.arrow_back),
+            child: Tooltip(
+              message: 'Back',
+              child: Icon(Icons.arrow_back),
+            ),
           ),
         ),
         // suffixIcon: IconButton(

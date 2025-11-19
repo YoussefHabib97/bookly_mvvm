@@ -15,10 +15,10 @@ class BookDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: showSuggestions
-          ? Column(
+    return showSuggestions
+        ? SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectedBookSection(
@@ -26,12 +26,12 @@ class BookDetailsBody extends StatelessWidget {
                 ),
                 const SuggestedBooksSection(),
               ],
-            )
-          : Center(
-              child: SelectedBookSection(
-                book: book,
-              ),
             ),
-    );
+          )
+        : Center(
+            child: SelectedBookSection(
+              book: book,
+            ),
+          );
   }
 }

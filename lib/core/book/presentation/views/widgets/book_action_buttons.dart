@@ -1,6 +1,7 @@
 import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:bookly_mvvm/core/widgets/custom_filled_button.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookActionButtons extends StatelessWidget {
   final BookModel book;
@@ -23,7 +24,10 @@ class BookActionButtons extends StatelessWidget {
                   bottomLeft: Radius.circular(16),
                 ),
                 backgroundColor: Theme.of(context).colorScheme.inverseSurface,
-                onPressed: () {},
+                onPressed: () async {
+                  final Uri url = Uri.parse(book.saleInfo!.buyLink!);
+                  await launchUrl(url);
+                },
               ),
               CustomFilledButton(
                 buttonText: 'Free Preview',
@@ -32,8 +36,9 @@ class BookActionButtons extends StatelessWidget {
                   bottomRight: Radius.circular(16),
                 ),
                 backgroundColor: Theme.of(context).colorScheme.primary,
-                onPressed: () {
-                  // TODO: Implement preview functionality
+                onPressed: () async {
+                  final Uri url = Uri.parse(book.volumeInfo.previewLink!);
+                  await launchUrl(url);
                 },
               ),
             ],

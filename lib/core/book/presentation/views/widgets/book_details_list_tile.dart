@@ -39,7 +39,7 @@ class BookDetailsListTile extends StatelessWidget {
                 ),
               ),
               Text(
-                book?.volumeInfo.authors![0] ?? 'Placeholder Author',
+                book?.volumeInfo.authors?[0] ?? 'No Credited Author',
                 style: Styles.textStyle16.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
@@ -51,7 +51,7 @@ class BookDetailsListTile extends StatelessWidget {
                   Text(
                     book?.saleInfo?.retailPrice == null
                         ? "Free"
-                        : book!.saleInfo!.retailPrice.toString(),
+                        : "EGP ${book!.saleInfo!.retailPrice!.amount!.toStringAsFixed(2)}",
                     style: Styles.textStyle16.copyWith(
                       fontWeight: FontWeight.bold,
                     ),

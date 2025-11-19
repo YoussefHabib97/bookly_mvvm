@@ -42,22 +42,24 @@ class FeaturedBooksHorizontalListView extends StatelessWidget {
             return CustomErrorWidget(errMessage: state.errMessage);
           default:
             return Skeletonizer(
-                child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                separatorBuilder: (context, index) => const SizedBox(width: 16),
-                itemBuilder: (context, index) {
-                  return const BookCoverTile(
-                    onTap: null,
-                    isDecorationImg: true,
-                    book: null,
-                  );
-                },
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.3,
+                child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 16),
+                  itemBuilder: (context, index) {
+                    return const BookCoverTile(
+                      onTap: null,
+                      isDecorationImg: true,
+                      book: null,
+                    );
+                  },
+                ),
               ),
-            ));
+            );
         }
       },
     );
