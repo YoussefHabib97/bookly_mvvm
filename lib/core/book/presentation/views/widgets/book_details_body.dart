@@ -24,7 +24,9 @@ class BookDetailsBody extends StatelessWidget {
                 SelectedBookSection(
                   book: book,
                 ),
-                const SuggestedBooksSection(),
+                SuggestedBooksSection(
+                  book: book,
+                ),
               ],
             ),
           )

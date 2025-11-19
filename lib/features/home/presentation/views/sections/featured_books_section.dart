@@ -1,5 +1,5 @@
 import 'package:bookly_mvvm/core/utils/styles.dart';
-import 'package:bookly_mvvm/features/home/presentation/views/widgets/featured_books_horizontal_list_view.dart';
+import 'package:bookly_mvvm/features/home/presentation/views/widgets/books_horizontal_list_view.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedBooksSection extends StatelessWidget {
@@ -20,7 +20,10 @@ class FeaturedBooksSection extends StatelessWidget {
                 style: Styles.textStyle18,
               ),
             ),
-            FeaturedBooksHorizontalListView(),
+            BooksHorizontalListView(
+              category: '',
+              isDisplayFeatured: true,
+            ),
           ],
         ),
       ),

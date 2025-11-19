@@ -27,6 +27,16 @@ class FloatingAppBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
+          tooltip: 'Favorites',
+          onPressed: () {
+            AppRouter.router.push(AppRouter.kSearchView);
+          },
+          icon: Icon(
+            Icons.favorite,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        IconButton(
           tooltip: 'Search',
           onPressed: () {
             AppRouter.router.push(AppRouter.kSearchView);

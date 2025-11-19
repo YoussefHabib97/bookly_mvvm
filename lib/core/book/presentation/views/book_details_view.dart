@@ -19,10 +19,16 @@ class BookDetailsView extends StatefulWidget {
 
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
+  void initState() {
+    // TODO: check if book is in local favorites
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        forceMaterialTransparency: true,
+        // forceMaterialTransparency: true,
         actions: [
           IconButton(
             onPressed: () async {},
@@ -40,6 +46,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
       ),
       body: BookDetailsBody(
         book: widget.book!,
+        // TODO: Implement condition to check if it's in favorites, show no suggestions
         showSuggestions: widget.showSuggestions,
       ),
     );
