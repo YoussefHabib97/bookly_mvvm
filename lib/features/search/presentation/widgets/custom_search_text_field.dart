@@ -1,5 +1,7 @@
 import 'package:bookly_mvvm/core/utils/app_router.dart';
+import 'package:bookly_mvvm/features/search/presentation/manager/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
@@ -10,7 +12,10 @@ class CustomSearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       autofocus: true,
-      onSubmitted: (value) {},
+      onSubmitted: (value) async {
+        await BlocProvider.of<SearchCubit>(context)
+            .searchForBooks(searchTerms: value);
+      },
       onChanged: (value) {},
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       keyboardType: TextInputType.name,

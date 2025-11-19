@@ -27,7 +27,7 @@ class SelectedBookSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            book!.volumeInfo.title!,
+            book!.volumeInfo.title ?? 'No Title',
             style: Styles.textStyle30,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,

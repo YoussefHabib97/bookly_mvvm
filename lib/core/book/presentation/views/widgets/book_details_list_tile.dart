@@ -31,7 +31,7 @@ class BookDetailsListTile extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Text(
-                  book?.volumeInfo.title ?? 'Placeholder Title',
+                  book?.volumeInfo.title ?? 'No Title',
                   style:
                       Styles.textStyle20.copyWith(fontWeight: FontWeight.w600),
                   maxLines: 2,

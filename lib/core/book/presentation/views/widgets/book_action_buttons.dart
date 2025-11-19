@@ -47,7 +47,10 @@ class BookActionButtons extends StatelessWidget {
             buttonText: 'Preview',
             borderRadius: BorderRadius.circular(16),
             backgroundColor: Theme.of(context).colorScheme.primary,
-            onPressed: () {},
+            onPressed: () async {
+              final Uri url = Uri.parse(book.volumeInfo.previewLink!);
+              await launchUrl(url);
+            },
           );
   }
 }

@@ -13,9 +13,12 @@ class FeaturedBooksSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Featured Books",
-              style: Styles.textStyle18,
+            Padding(
+              padding: EdgeInsets.only(bottom: 8.0),
+              child: Text(
+                "Featured Books",
+                style: Styles.textStyle18,
+              ),
             ),
             FeaturedBooksHorizontalListView(),
           ],
