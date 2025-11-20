@@ -80,7 +80,7 @@ Suggestion system uses:
 
 This project will **NOT** work without JDK 11, you can install Eclipse Adoptium's Temurin JDK 11 [here](https://adoptium.net/temurin/releases?version=11&os=any&arch=any)
 
-Please go to this directory and update the JDK 11 directory to your own machine's directory
+Please go to this directory and update the JDK 11 path to your own machine's directory
 ```
 bookly_mvvm/
       ├── android/gradle.properties
