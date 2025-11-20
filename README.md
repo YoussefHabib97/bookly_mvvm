@@ -2,6 +2,8 @@
 
 A clean, modern Flutter application that integrates with **Google Books API v1** to allow users to search for books, view detailed information, and explore smart suggestions based on book categories. Built using **MVVM architecture**, state management with **BLoC**, and several essential Flutter packages.
 
+You can watch the demo [here](https://www.linkedin.com/posts/youssef-habib97_excited-to-share-my-latest-project-bookly-activity-7397283078550847488-TiQc)
+
 ---
 
 ## 🚀 Features
