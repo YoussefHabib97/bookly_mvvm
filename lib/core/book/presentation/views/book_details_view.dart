@@ -36,15 +36,15 @@ class _BookDetailsViewState extends State<BookDetailsView> {
             appBar: AppBar(
               forceMaterialTransparency: true,
               actions: [
-                IconButton(
-                  onPressed: () async {
-                    var cubit = BlocProvider.of<FavoritesCubit>(context);
-                    await cubit.addBookToFavorites(widget.book!);
-                  },
-                  icon: Icon(Icons.favorite_border,
-                      color: Theme.of(context).colorScheme.inversePrimary),
-                  tooltip: 'Add to Favorites',
-                ),
+                // IconButton(
+                //   onPressed: () async {
+                //     var cubit = BlocProvider.of<FavoritesCubit>(context);
+                //     await cubit.addBookToFavorites(widget.book!);
+                //   },
+                //   icon: Icon(Icons.favorite_border,
+                //       color: Theme.of(context).colorScheme.inversePrimary),
+                //   tooltip: 'Add to Favorites',
+                // ),
                 IconButton(
                   onPressed: () {
                     AppRouter.router.pushReplacement(AppRouter.kHomeView);

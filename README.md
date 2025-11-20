@@ -18,10 +18,9 @@ A clean, modern Flutter application that integrates with **Google Books API v1**
 * Shows **suggested books** based on the category of the currently viewed book.
 * Smooth navigation powered by BLoC and MVVM.
 
-### ⭐ Favorites & Local Storage (To be implemented)
+### ⭐ Local Storage
 
-* Users can save books to their favorites.
-* Favorites stored locally for offline access.
+* Persistent Theme data on device using SharedPreferences
 
 ### 🎨 Light & Dark Mode
 
@@ -46,10 +45,12 @@ This project follows the **MVVM (Model-View-ViewModel)** architecture for a clea
 * **Google Books API v1**
 * **BLoC / flutter_bloc** – state management
 * **Dio** – for networking
-* **Shared Preferences / Hive** – for local storage
+* **Shared Preferences & Hive** – for local storage
 * **GetIt** – for dependency injection
+* **GoRouter** – for handling navigation and routing
 * **Equatable** – for clean state comparisons
 * **Skeletonizer** – for clean loading transitions
+* **Url Launcher** – for launching book URLs
 
 ---
 
@@ -71,7 +72,6 @@ Suggestion system uses:
 * **Home Screen** – Featured books / search entry.
 * **Search Screen** – Search field + results list.
 * **Book Details Screen** – Book info + category suggestions.
-* **Favorites Screen** – Locally saved books.
 
 ---
 

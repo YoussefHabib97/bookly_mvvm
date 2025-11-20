@@ -13,12 +13,13 @@ class CustomSearchTextField extends StatelessWidget {
     return TextField(
       autofocus: true,
       onSubmitted: (value) async {
-        await BlocProvider.of<SearchCubit>(context)
-            .searchForBooks(searchTerms: value);
+        value.trim().isNotEmpty
+            ? await BlocProvider.of<SearchCubit>(context)
+                .searchForBooks(searchTerms: value.trim())
+            : null;
       },
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
-      keyboardType: TextInputType.name,
-      textCapitalization: TextCapitalization.sentences,
+      keyboardType: TextInputType.text,
       decoration: InputDecoration(
         labelText: "Search",
         alignLabelWithHint: true,

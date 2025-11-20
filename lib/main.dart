@@ -1,8 +1,7 @@
-import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/manager/cubit/latest_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/themes/data/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
@@ -17,9 +16,9 @@ Future<void> main() async {
   setupServiceLocator();
   await SharedPrefs.init();
 
-  await Hive.initFlutter();
-  Hive.registerAdapter(BookModelAdapter());
-  await Hive.openBox<BookModel>('favoritesBox');
+  // await Hive.initFlutter();
+  // Hive.registerAdapter(BookModelAdapter());
+  // await Hive.openBox<BookModel>('favoritesBox');
 
   runApp(
     MultiBlocProvider(
@@ -51,6 +50,11 @@ class ApplicationRoot extends StatelessWidget {
         return MaterialApp.router(
           routerConfig: AppRouter.router,
           theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarIconBrightness: Brightness.dark,
+              ),
+            ),
             colorScheme: ColorScheme.fromSeed(
               brightness: Brightness.light,
               seedColor: const Color(0xff006a60),
@@ -59,6 +63,11 @@ class ApplicationRoot extends StatelessWidget {
             useMaterial3: true,
           ),
           darkTheme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarIconBrightness: Brightness.light,
+              ),
+            ),
             colorScheme: ColorScheme.fromSeed(
               brightness: Brightness.dark,
               seedColor: const Color(0xff53dbca),
