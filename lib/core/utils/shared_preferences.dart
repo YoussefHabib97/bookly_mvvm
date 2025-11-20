@@ -9,7 +9,7 @@ class SharedPrefs {
 
   static const kFavoriteItems = 'favoriteItems';
 
-  static Future<void> prefsInit() async {
+  static Future<void> init() async {
     instance = await SharedPreferences.getInstance();
     await getIsAppFirstRun();
   }

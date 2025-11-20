@@ -1,6 +1,8 @@
+import 'package:bookly_mvvm/core/book/data/models/book_model/book_model.dart';
 import 'package:bookly_mvvm/features/home/presentation/views/manager/cubit/latest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/themes/data/cubit/theme_cubit.dart';
 import 'core/themes/themes.dart';
@@ -13,7 +15,11 @@ import 'features/home/presentation/views/manager/cubit/featured_books_cubit.dart
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
-  await SharedPrefs.prefsInit();
+  await SharedPrefs.init();
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookModelAdapter());
+  await Hive.openBox<BookModel>('favoritesBox');
 
   runApp(
     MultiBlocProvider(

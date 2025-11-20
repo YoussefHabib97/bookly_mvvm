@@ -16,7 +16,6 @@ class CustomSearchTextField extends StatelessWidget {
         await BlocProvider.of<SearchCubit>(context)
             .searchForBooks(searchTerms: value);
       },
-      onChanged: (value) {},
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.sentences,
@@ -37,13 +36,6 @@ class CustomSearchTextField extends StatelessWidget {
             ),
           ),
         ),
-        // suffixIcon: IconButton(
-        //   onPressed: () {},
-        //   icon: const Opacity(
-        //     opacity: 0.75,
-        //     child: Icon(Icons.search),
-        //   ),
-        // ),
       ),
     );
   }

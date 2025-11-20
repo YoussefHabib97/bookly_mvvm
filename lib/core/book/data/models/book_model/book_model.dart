@@ -1,21 +1,33 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModel extends Equatable {
+part 'book_model.g.dart';
+
+@HiveType(typeId: 0)
+class BookModel with HiveObjectMixin, EquatableMixin {
+  @HiveField(0)
   final String? kind;
+  @HiveField(1)
   final String? id;
+  @HiveField(2)
   final String? etag;
+  @HiveField(3)
   final String? selfLink;
+  @HiveField(4)
   final VolumeInfo volumeInfo;
+  @HiveField(5)
   final SaleInfo? saleInfo;
+  @HiveField(6)
   final AccessInfo? accessInfo;
+  @HiveField(7)
   final SearchInfo? searchInfo;
 
-  const BookModel({
+  BookModel({
     this.kind,
     this.id,
     this.etag,
