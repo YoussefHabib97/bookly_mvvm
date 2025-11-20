@@ -20,7 +20,7 @@ A clean, modern Flutter application that integrates with **Google Books API v1**
 
 ### ⭐ Local Storage
 
-* Persistent Theme data on device using SharedPreferences
+* Persistent theme switching using SharedPreferences.
 
 ### 🎨 Light & Dark Mode
 
@@ -45,12 +45,11 @@ This project follows the **MVVM (Model-View-ViewModel)** architecture for a clea
 * **Google Books API v1**
 * **BLoC / flutter_bloc** – state management
 * **Dio** – for networking
-* **Shared Preferences & Hive** – for local storage
+* **Shared Preferences** – for local storage
 * **GetIt** – for dependency injection
-* **GoRouter** – for handling navigation and routing
+* **GoRouter** – for navigation and routing
 * **Equatable** – for clean state comparisons
 * **Skeletonizer** – for clean loading transitions
-* **Url Launcher** – for launching book URLs
 
 ---
 
@@ -74,6 +73,20 @@ Suggestion system uses:
 * **Book Details Screen** – Book info + category suggestions.
 
 ---
+
+## ⚠️ IMPORTANT NOTICE:
+
+###
+
+This project will **NOT** work without JDK 11, you can install Eclipse Adoptium's Temurin JDK 11 [here](https://adoptium.net/temurin/releases?version=11&os=any&arch=any)
+
+Please go to this directory and update the JDK 11 directory to your own machine's directory
+```
+bookly_mvvm/
+      ├── android/gradle.properties
+                     ├── org.gradle.java.home="C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.28.6-hotspot"
+
+```
 
 ## ▶️ How to Run
 
