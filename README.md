@@ -84,8 +84,10 @@ Please go to this directory and update the JDK 11 path to your own machine's dir
 ```
 bookly_mvvm/
       ├── android/gradle.properties
-                     ├── org.gradle.java.home="C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.28.6-hotspot"
-
+```
+This is the line where you need to make the change
+```
+org.gradle.java.home=%YOUR_PATH%\\jdk-11.0.28.6-hotspot
 ```
 
 ## ▶️ How to Run
