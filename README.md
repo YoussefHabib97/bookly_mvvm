@@ -18,7 +18,7 @@ A clean, modern Flutter application that integrates with **Google Books API v1**
 * Shows **suggested books** based on the category of the currently viewed book.
 * Smooth navigation powered by BLoC and MVVM.
 
-### ⭐ Local Storage
+### 💾 Local Storage
 
 * Persistent theme switching using SharedPreferences.
 
